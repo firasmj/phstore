@@ -23,7 +23,7 @@ import Form from 'react-bootstrap/Form';
 const AddProduct = () => {
 
     const ax1 = axios.create({
-        baseURL: `http://localhost:3300/`,
+        baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
     });
 
     const id = useUserAuth.getState().id;

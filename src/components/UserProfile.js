@@ -30,7 +30,7 @@ const UserProfile = () => {
 
 
   const ax1 = axios.create({
-    baseURL: `http://localhost:3300/`,
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
   });
 
   const userId = useUserAuth.getState().id;

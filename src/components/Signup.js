@@ -17,7 +17,7 @@ function Signup() {
   const [formSent, setFormSent] = useState(false);
 
   const ax1 = axios.create({
-    baseURL: `http://localhost:3300/`,
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
   });
 
   const [isLoading, setIsLoading] = useState(false);

@@ -13,7 +13,7 @@ function Register() {
     const navigate = useNavigate();
 
     const ax1 = axios.create({
-        baseURL: `http://localhost:3300/`,
+        baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
     });
 
     const [isLoading, setIsLoading] = useState(false);

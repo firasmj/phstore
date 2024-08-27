@@ -8,7 +8,7 @@ const DataTable = () => {
     const [products, setProducts] = useState([]);
 
     const ax1 = axios.create({
-        baseURL: `http://localhost:3300/`,
+        baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
     });
 
     const refreshProducts = async (e) => {

@@ -48,7 +48,7 @@ const App = () => {
   const [usernames2, setUsernames2] = useState([]);
 
   const axiosInstance = axios.create({
-    baseURL: `http://localhost:3300/`,
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
   });
 
   useEffect(() => {

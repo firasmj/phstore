@@ -46,7 +46,7 @@ const ProductsPage = () => {
   const [filter, setFilter] = useState('');
 
   const ax1 = axios.create({
-    baseURL: `http://localhost:3300/`,
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
   });
 
   useEffect(() => {

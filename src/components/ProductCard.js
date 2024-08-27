@@ -19,7 +19,7 @@ function ProductCard({ item }) {
   const [showPay, setShowPay] = useState(true);
   var s = "https://wa.me/96181089213?text=Hello%2C%20I%20want%20to%20order%20the%20" + (item.name) + "%20" + (item.type) + "%20username%21";
   const ax1 = axios.create({
-    baseURL: `http://localhost:3300`
+    baseURL: `${process.env.REACT_APP_BACKEND_URL}/`
   });
 
   useEffect(() => {
