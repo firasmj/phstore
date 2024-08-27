@@ -1,14 +1,40 @@
-{
-  "name": "phstore",
-  "version": "0.1.0",
-  "private": true,
-  "main": "index.js", 
-  "dependencies": {
-    "@cryptapi/api": "^1.1.0",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.6.2",
-    "dotenv": "^16.4.5" 
+{"name": "phstore",
+"version": "0.1.0",
+"private": true,
+"main": "index.js", 
+"dependencies": {
+  "@cryptapi/api": "^1.1.0",
+  "cors": "^2.8.5",
+  "express": "^4.19.2",
+  "mysql": "^2.18.1",
+  "mysql2": "^3.6.2",
+  "dotenv": "^16.4.5" 
+},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
