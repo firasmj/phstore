@@ -22,7 +22,7 @@ app.use(cors({
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname,
-      '../../public/product images/'));
+      '/product images/'));
   }
 });
 
@@ -34,7 +34,7 @@ app.post('/image-upload', upload.single('my-image-file'), (req, res) => {
   }
 
   const filename = `${req.file.fieldname}-${req.file.size}.jpeg`; // Generate filename
-  const newPath = path.join(__dirname, '../../public/product images/', filename);
+  const newPath = path.join(__dirname, '/product images/', filename);
 
   // Move the file to the desired location (optional)
   fs.rename(req.file.path, newPath, (err) => {
@@ -44,7 +44,7 @@ app.post('/image-upload', upload.single('my-image-file'), (req, res) => {
     }
 
     // Send the response with the image URL
-    res.json({ url: `/product images/${filename}` });
+    //res.json({ url: `/product images/${filename}` });
   });
 });
 
