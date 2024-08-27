@@ -12,9 +12,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//const corsOrigin = 'http://localhost:3000';
+const corsOrigin = 'http://localhost:3000';
 app.use(cors({
-  //origin: [corsOrigin],
+  origin: [corsOrigin],
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -60,7 +60,7 @@ app.listen(port2, process.env.IP, function () {
 
 const port = 3300;
 app.use(cors({
-  //origin: 'http://localhost:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 app.use(express.json());
