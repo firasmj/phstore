@@ -119,7 +119,7 @@ const AddProduct = () => {
                 formData1.append('my-image-file', selectedImage[0], selectedImage[1]);
 
                 try {
-                    const imageResponse = await axios.post('http://localhost:4000/image-upload', formData1, {
+                    const imageResponse = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/image-upload`, formData1, {
                         headers: {
                             'Content-Type': 'multipart/form-data' // Set content type for image upload
                         }
