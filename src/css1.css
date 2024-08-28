@@ -681,7 +681,8 @@
     /*---------------------------------------*/
     flex: 0 0 auto;
     /* width: 200px; */
-    margin-right: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
     /* font-size: small; */
     font-size: x-small;
     /* margin-left: 1rem; */
