@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import { Spinner } from 'mdb-react-ui-kit';
+import {MDBSpinner} from 'mdb-react-ui-kit';
 
 function Register() {
 

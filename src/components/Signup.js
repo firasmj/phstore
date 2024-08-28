@@ -5,7 +5,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";
 import { useUserAuth } from '../store';
-import { Spinner } from 'mdb-react-ui-kit';
+import {MDBSpinner} from 'mdb-react-ui-kit';
 
 
 function Signup() {
