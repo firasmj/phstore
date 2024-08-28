@@ -122,6 +122,7 @@ const DataTable = () => {
 
                     <input
                         type="checkbox"
+                        entriesOptions={[20, 30, 40, 100]}
                         // checked={checkedItems.includes(product.id)}
                         entries={100}
                         value={product.id}
