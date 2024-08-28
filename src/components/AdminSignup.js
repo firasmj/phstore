@@ -5,6 +5,8 @@ import UserContext from "./UserContext";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useAdminAuth } from "../store";
+import {MDBSpinner} from 'mdb-react-ui-kit';
+import '../css1.css';
 
 
 function AdminSignup() {
@@ -84,10 +86,10 @@ function AdminSignup() {
         }
     };
 
-    if (isLoading) {
-        return <p>Loading...</p>;
+    // if (isLoading) {
+    //     return <p>Loading...</p>;
 
-    }
+    // }
 
     const handleChange = (field) => (e) => {
         setData({ ...data, [field]: e.target.value });
@@ -95,6 +97,11 @@ function AdminSignup() {
 
     return (
         <div className="auth-wrapper" data-aos="fade-up">
+            {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+                <MDBSpinner className='m-5' role='status' color='light'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>}
             <div className="auth-inner">
                 <div className="">
                     <form name="form1" onSubmit={handleSubmit}>

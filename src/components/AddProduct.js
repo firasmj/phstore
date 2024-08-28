@@ -19,6 +19,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useUserAuth } from '../store';
 import Form from 'react-bootstrap/Form';
+import '../css1.css';
 
 
 const AddProduct = () => {
@@ -173,9 +174,11 @@ const AddProduct = () => {
     if (useUserAuth.getState().id != null)
         return (
             <section>
-                {isLoading && <MDBSpinner grow>
-                    <span className='visually-hidden'>Loading...</span>
-                </MDBSpinner>}
+                <div className='d-flex justify-content-center spinner-fm'>
+                    <MDBSpinner className='m-5' role='status' color='light'>
+                        <span className='visually-hidden'>Loading...</span>
+                    </MDBSpinner>
+                </div>
                 <MDBContainer className="py-5">
                     {/* <form onSubmit={handleSubmit}> */}
                     <MDBRow>

@@ -3,7 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import {MDBSpinner} from 'mdb-react-ui-kit';
+import { MDBSpinner } from 'mdb-react-ui-kit';
+import '../css1.css';
 
 function Register() {
 
@@ -165,9 +166,11 @@ function Register() {
 
     return (
         <div className="auth-wrapper" data-aos="fade-up">
-            {isLoading && <MDBSpinner grow>
-                <span className='visually-hidden'>Loading...</span>
-            </MDBSpinner>}
+            {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+                <MDBSpinner className='m-5' role='status' color='light'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>}
             <div className="auth-inner">
                 <div className="">
                     <form name="form1" onSubmit={handleSubmit}>

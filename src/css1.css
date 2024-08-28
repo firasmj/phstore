@@ -1098,3 +1098,10 @@ input:focus {
 .banner-ph{
   box-shadow: 0 0 15px 5px rgba(81, 51, 253, 0.741);
 }
+
+.spinner-fm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

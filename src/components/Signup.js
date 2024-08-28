@@ -5,7 +5,8 @@ import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";
 import { useUserAuth } from '../store';
-import {MDBSpinner} from 'mdb-react-ui-kit';
+import { MDBSpinner } from 'mdb-react-ui-kit';
+import '../css1.css';
 
 
 function Signup() {
@@ -143,9 +144,11 @@ function Signup() {
 
   return (
     <div className="auth-wrapper" data-aos="fade-up">
-      {isLoading && <MDBSpinner grow>
-        <span className='visually-hidden'>Loading...</span>
-      </MDBSpinner>}
+      {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+        <MDBSpinner className='m-5' role='status' color='light'>
+          <span className='visually-hidden'>Loading...</span>
+        </MDBSpinner>
+      </div>}
       <div className="auth-inner">
         <div className="">
           <form name="form1" onSubmit={handleSubmit}>
