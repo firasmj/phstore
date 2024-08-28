@@ -664,9 +664,9 @@
 
   /* cardddddddddddddddddddddddddddddddddd*/
   .movie {
-    width: 8.5rem;
+    width: 9.8rem;
     height: 24rem;
-    margin: 0.2rem;
+    margin: 0.1rem;
     /* max-width: 60%; */
     position: relative;
     display: flex;
