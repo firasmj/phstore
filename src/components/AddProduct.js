@@ -12,7 +12,8 @@ import {
     MDBRow,
     MDBCardBody,
     MDBBreadcrumb,
-    MDBBreadcrumbItem
+    MDBBreadcrumbItem,
+    MDBSpinner
 } from 'mdb-react-ui-kit';
 import { useState } from 'react';
 import axios from 'axios';
@@ -92,7 +93,7 @@ const AddProduct = () => {
                 pVisibility: (visible ? 1 : 0)
             };
 
-            if(!(id && productData.pName && productData.pPrice && productData.pQuantity && productData.pType && productData.pDetails && selectedImage != null)){
+            if (!(id && productData.pName && productData.pPrice && productData.pQuantity && productData.pType && productData.pDetails && selectedImage != null)) {
                 setUploaded(false);
                 setErrMsg("All fields are required");
                 setIsLoading(false);
@@ -166,15 +167,17 @@ const AddProduct = () => {
         resetInfo();
     };
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
+    // if (isLoading) {
+    //     return <p>Loading...</p>;
+    // }
     if (useUserAuth.getState().id != null)
-    return (
-        <section>
-
-            <MDBContainer className="py-5">
-                {/* <form onSubmit={handleSubmit}> */}
+        return (
+            <section>
+                {isLoading && <MDBSpinner grow>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>}
+                <MDBContainer className="py-5">
+                    {/* <form onSubmit={handleSubmit}> */}
                     <MDBRow>
                         <MDBCol lg="12" className="text-center d-flex justify-content-center mb-2">
                             <MDBCard className="mb-4" data-aos="fade-up">
@@ -228,23 +231,23 @@ const AddProduct = () => {
                                         </MDBValidationItem>
                                         <hr />
                                         <MDBValidationItem invalid>
-                                        <Form.Select aria-label="Default select example" required onChange={handleChange('pType')}>
-                                            <option value="Other" selected disabled>Select Product Type</option>
-                                            <option value="Mobiles and Accessories">Mobiles and Accessories</option>
-                                            <option value="Vehicles">Vehicles</option>
-                                            <option value="Properties">Properties</option>
-                                            <option value="Electronics and Appliances">Electronics and Appliances</option>
-                                            <option value="Furniture and Decor">Furniture and Decor</option>
-                                            <option value="Business and Industrial">Business and Industrial</option>
-                                            <option value="Pets">Pets</option>
-                                            <option value="Kids and Babies">Kids and Babies</option>
-                                            <option value="Sports and Equipment">Sports and Equipment</option>
-                                            <option value="Hobbies, Music, Arts, and Books">Hobbies, Music, Arts, and Books</option>
-                                            <option value="Jobs">Jobs</option>
-                                            <option value="Fashion and Beauty">Fashion and Beauty</option>
-                                            <option value="Services">Services</option>
-                                            <option value="Other">Other</option>
-                                        </Form.Select>
+                                            <Form.Select aria-label="Default select example" required onChange={handleChange('pType')}>
+                                                <option value="Other" selected disabled>Select Product Type</option>
+                                                <option value="Mobiles and Accessories">Mobiles and Accessories</option>
+                                                <option value="Vehicles">Vehicles</option>
+                                                <option value="Properties">Properties</option>
+                                                <option value="Electronics and Appliances">Electronics and Appliances</option>
+                                                <option value="Furniture and Decor">Furniture and Decor</option>
+                                                <option value="Business and Industrial">Business and Industrial</option>
+                                                <option value="Pets">Pets</option>
+                                                <option value="Kids and Babies">Kids and Babies</option>
+                                                <option value="Sports and Equipment">Sports and Equipment</option>
+                                                <option value="Hobbies, Music, Arts, and Books">Hobbies, Music, Arts, and Books</option>
+                                                <option value="Jobs">Jobs</option>
+                                                <option value="Fashion and Beauty">Fashion and Beauty</option>
+                                                <option value="Services">Services</option>
+                                                <option value="Other">Other</option>
+                                            </Form.Select>
                                         </MDBValidationItem>
                                         <label>Product Type</label>
                                         <hr />
@@ -269,14 +272,14 @@ const AddProduct = () => {
                             </MDBCard>
                         </MDBCol>
                     </MDBRow>
-                {/* </form> */}
-            </MDBContainer>
+                    {/* </form> */}
+                </MDBContainer>
 
-        </section>
+            </section>
 
-    );else return (
-        <p className='text-white text-center'>User Authorization Required</p>
-    )
+        ); else return (
+            <p className='text-white text-center'>User Authorization Required</p>
+        )
 }
 
 export default AddProduct;

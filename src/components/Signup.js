@@ -5,6 +5,8 @@ import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { Link } from "react-router-dom";
 import { useUserAuth } from '../store';
+import { Spinner } from 'mdb-react-ui-kit';
+
 
 function Signup() {
 
@@ -128,10 +130,10 @@ function Signup() {
     }
   };
 
-  if (isLoading) {
-    return <p>Loading...</p>;
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
 
-  }
+  // }
 
   const handleChange = (field) => (e) => {
     setData({ ...data, [field]: e.target.value });
@@ -141,6 +143,9 @@ function Signup() {
 
   return (
     <div className="auth-wrapper" data-aos="fade-up">
+      {isLoading && <MDBSpinner grow>
+        <span className='visually-hidden'>Loading...</span>
+      </MDBSpinner>}
       <div className="auth-inner">
         <div className="">
           <form name="form1" onSubmit={handleSubmit}>

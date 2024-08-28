@@ -11,7 +11,8 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardFooter,
-  MDBCardLink
+  MDBCardLink,
+  MDBSpinner
 } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAdd, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -139,7 +140,7 @@ const UserProfile = () => {
       }
     }
   }
-  
+
 
   const handleChange = (field) => (e) => {
     setData({ ...data, [field]: e.target.value });
@@ -206,7 +207,7 @@ const UserProfile = () => {
   }, [productDeleted, productUpdated]);
 
   //------------------
-  
+
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -229,163 +230,166 @@ const UserProfile = () => {
   //     // .catch(err => console.log(err));
   // }, [productDeleted, productUpdated]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
   if (useUserAuth.getState().id != null)
     return (
       <section className='fm-light-section'>
+        {isLoading && <MDBSpinner grow>
+          <span className='visually-hidden'>Loading...</span>
+        </MDBSpinner>}
         {/* css not working */}
         <MDBContainer className="py-5">
           {/* <form onSubmit={update1}> */}
-            <MDBRow>
-              <MDBCol lg="4">
-                <MDBCard className="mb-4" data-aos="fade-up">
-                  <p className='text-white text-center bg-success'>{(updated || productUpdated) && `Information updated successfully!`}</p>
+          <MDBRow>
+            <MDBCol lg="4">
+              <MDBCard className="mb-4" data-aos="fade-up">
+                <p className='text-white text-center bg-success'>{(updated || productUpdated) && `Information updated successfully!`}</p>
 
-                  <MDBCardBody className="text-center">
-                    <MDBCardImage
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                      alt="avatar"
-                      className="rounded-circle mb-2"
-                      style={{ width: '150px' }}
-                      fluid />
-                    <h3><p className="text-muted mb-1">{useUserAuth.getState().username}</p></h3>
-                    <p className="text-muted mb-4">{useUserAuth.getState().address}</p>
-                    <div className="d-flex justify-content-center mb-2">
-                      {useUserAuth.getState().bio}
-                    </div>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-              <MDBCol lg="8">
-                <MDBCard className="mb-4" data-aos="fade-up">
-                  <MDBCardBody>
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Username</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='text' onChange={handleChange('username')} placeholder={data.username} value={data.username}>
-                          {errors.username && <p className="error">{errors.username}</p>}
-                        </MDBInput>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Email</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='text' onChange={handleChange('email')} placeholder={data.email} value={data.email}></MDBInput>
-                        {errors.email && <p className="error">{errors.email}</p>}
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Password</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='password' onChange={handleChange('password')} placeholder={data.password} value={data.password}></MDBInput>
-                        {errors.password && <p className="error">{errors.password}</p>}
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Address</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='address' onChange={handleChange('address')} placeholder={data.address} value={data.address}></MDBInput>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Bio</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='address' onChange={handleChange('bio')} placeholder={data.bio} value={data.bio}></MDBInput>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol sm="3">
-                        <MDBCardText>Register Date</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9">
-                        <MDBInput type='text' value={(useUserAuth.getState().register != null) && Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(useUserAuth.getState().register)) || ""}></MDBInput>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                      <MDBCol>
-                        <MDBBtn onClick={update1}>Edit Profile</MDBBtn>
-                      </MDBCol>
-                      <MDBCol>
-                        <MDBBtn onClick={cancel} className='btn btn-danger'>Cancel</MDBBtn>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCardBody>
-                </MDBCard>
-                <MDBRow data-aos="fade-right">
-                  <MDBCol>
-                    <MDBCard>
-                      <MDBCardBody className='justify-content-center text-center lead'>
-                        <MDBCardLink><a href='#!'><FontAwesomeIcon icon={faAdd} style={{ paddingRight: '0.7rem' }} /></a><Link to={'/AddProduct'}>Add product</Link></MDBCardLink>
+                <MDBCardBody className="text-center">
+                  <MDBCardImage
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                    alt="avatar"
+                    className="rounded-circle mb-2"
+                    style={{ width: '150px' }}
+                    fluid />
+                  <h3><p className="text-muted mb-1">{useUserAuth.getState().username}</p></h3>
+                  <p className="text-muted mb-4">{useUserAuth.getState().address}</p>
+                  <div className="d-flex justify-content-center mb-2">
+                    {useUserAuth.getState().bio}
+                  </div>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="8">
+              <MDBCard className="mb-4" data-aos="fade-up">
+                <MDBCardBody>
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Username</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='text' onChange={handleChange('username')} placeholder={data.username} value={data.username}>
+                        {errors.username && <p className="error">{errors.username}</p>}
+                      </MDBInput>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Email</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='text' onChange={handleChange('email')} placeholder={data.email} value={data.email}></MDBInput>
+                      {errors.email && <p className="error">{errors.email}</p>}
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Password</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='password' onChange={handleChange('password')} placeholder={data.password} value={data.password}></MDBInput>
+                      {errors.password && <p className="error">{errors.password}</p>}
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Address</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='address' onChange={handleChange('address')} placeholder={data.address} value={data.address}></MDBInput>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Bio</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='address' onChange={handleChange('bio')} placeholder={data.bio} value={data.bio}></MDBInput>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Register Date</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBInput type='text' value={(useUserAuth.getState().register != null) && Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(useUserAuth.getState().register)) || ""}></MDBInput>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol>
+                      <MDBBtn onClick={update1}>Edit Profile</MDBBtn>
+                    </MDBCol>
+                    <MDBCol>
+                      <MDBBtn onClick={cancel} className='btn btn-danger'>Cancel</MDBBtn>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCard>
+              <MDBRow data-aos="fade-right">
+                <MDBCol>
+                  <MDBCard>
+                    <MDBCardBody className='justify-content-center text-center lead'>
+                      <MDBCardLink><a href='#!'><FontAwesomeIcon icon={faAdd} style={{ paddingRight: '0.7rem' }} /></a><Link to={'/AddProduct'}>Add product</Link></MDBCardLink>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
+              <MDBRow data-aos="fade-up">
+                <p className='text-white lead text-center mt-3 bg-success'>{productDeleted && 'product deleted successfully'}</p>
+                {products != null && products.map(product => (
+                  <MDBCol className='mb-4 w-20'>
+                    <MDBCard className='h-100'>
+
+                      {product.image_url != null ? (
+                        <MDBCardImage
+                          src={product.image_url}
+                          alt={product.name}
+                          position='top'
+                        />
+                      ) : (<p>Loading...</p>)}
+
+                      <MDBCardBody>
+                        <MDBCardTitle>{product.name}</MDBCardTitle>
+                        <MDBCardText>
+                          {product.details}
+                          <hr />
+                          Price: {product.price}
+                          <hr />
+                          Post Status: {
+                            product.status === "accepted" ? (
+                              <p className='bg-primary text-white text-center'>{product.status}</p>
+                            ) : ((product.status === "rejected") ? (
+                              <p class='bg-danger text-white text-center'>{product.status}</p>
+                            ) : ((product.status === "pending") ? (<p class='bg-secondary text-white text-center'>{product.status}</p>) : (<p class='bg-success text-white text-center'>{product.status}</p>)))}
+                          <FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat /> {((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}
+                        </MDBCardText>
                       </MDBCardBody>
+                      <MDBCardFooter>
+                        <MDBBtn onClick={deleteProduct} value={product.id} className='m-1 btn-danger'>Delete</MDBBtn>
+                        <MDBBtn onClick={markSold} value={product.id} className='m-1 btn-success'>Set as Sold</MDBBtn>
+                        <small className='text-muted'>{Intl.DateTimeFormat('en', { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric' }).format(new Date(product.date))}</small>
+                      </MDBCardFooter>
                     </MDBCard>
                   </MDBCol>
-                </MDBRow>
-                <MDBRow data-aos="fade-up">
-                  <p className='text-white lead text-center mt-3 bg-success'>{productDeleted && 'product deleted successfully'}</p>
-                  {products != null && products.map(product => (
-                    <MDBCol className='mb-4 w-20'>
-                      <MDBCard className='h-100'>
-
-                        {product.image_url != null ? (
-                          <MDBCardImage
-                            src={product.image_url}
-                            alt={product.name}
-                            position='top'
-                          />
-                        ) : (<p>Loading...</p>)}
-
-                        <MDBCardBody>
-                          <MDBCardTitle>{product.name}</MDBCardTitle>
-                          <MDBCardText>
-                            {product.details}
-                            <hr />
-                            Price: {product.price}
-                            <hr />
-                            Post Status: {
-                              product.status === "accepted" ? (
-                                <p className='bg-primary text-white text-center'>{product.status}</p>
-                              ) : ((product.status === "rejected") ? (
-                                <p class='bg-danger text-white text-center'>{product.status}</p>
-                              ) : ((product.status === "pending") ? (<p class='bg-secondary text-white text-center'>{product.status}</p>) : (<p class='bg-success text-white text-center'>{product.status}</p>)))}
-                            <FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat /> {((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}
-                          </MDBCardText>
-                        </MDBCardBody>
-                        <MDBCardFooter>
-                          <MDBBtn onClick={deleteProduct} value={product.id} className='m-1 btn-danger'>Delete</MDBBtn>
-                          <MDBBtn onClick={markSold} value={product.id} className='m-1 btn-success'>Set as Sold</MDBBtn>
-                          <small className='text-muted'>{Intl.DateTimeFormat('en', { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric' }).format(new Date(product.date))}</small>
-                        </MDBCardFooter>
-                      </MDBCard>
-                    </MDBCol>
-                  ))}
-                </MDBRow>
-              </MDBCol>
-            </MDBRow>
+                ))}
+              </MDBRow>
+            </MDBCol>
+          </MDBRow>
           {/* </form> */}
         </MDBContainer>
       </section>
-    );else return (
+    ); else return (
       <p className='text-white text-center'>User Authorization Required</p>
-  )
+    )
 }
 
 export default UserProfile;
