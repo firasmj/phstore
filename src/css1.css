@@ -467,7 +467,7 @@
 
   .containerhz1 {
     background-color: rgba(17, 0, 93, 0.466);
-    width: 90%;
+    width: 97%;
     margin: auto;
     padding-bottom: 2rem;
     padding-top: 1rem;
@@ -664,9 +664,9 @@
 
   /* cardddddddddddddddddddddddddddddddddd*/
   .movie {
-    width: 11rem;
+    width: 8.5rem;
     height: 24rem;
-    margin: 0.5rem;
+    margin: 0.2rem;
     /* max-width: 60%; */
     position: relative;
     display: flex;
