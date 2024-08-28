@@ -146,7 +146,7 @@ const DataTable = () => {
                 bordered
                 small
                 data={data}
-                pagination={false}
+                paging="false"
             />
             <form>
                 <tr>
