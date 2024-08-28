@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useAdminAuth } from "../store";
-import {MDBSpinner} from 'mdb-react-ui-kit';
+import { MDBSpinner } from 'mdb-react-ui-kit';
 import '../css1.css';
 
 
@@ -97,8 +97,8 @@ function AdminSignup() {
 
     return (
         <div className="auth-wrapper" data-aos="fade-up">
-            {isLoading && <div className='d-flex justify-content-center spinner-fm'>
-                <MDBSpinner className='m-5' size="lg" role='status' color='light'>
+            {isLoading && <div className='spinner-fm-back'>
+                <MDBSpinner className='m-5 spinner-fm' size="lg" role='status' color='light'>
                     <span className='visually-hidden'>Loading...</span>
                 </MDBSpinner>
             </div>}

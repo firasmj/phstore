@@ -245,8 +245,8 @@ const UserProfile = () => {
   if (useUserAuth.getState().id != null)
     return (
       <section className='fm-light-section'>
-        {isLoading && <div className='d-flex justify-content-center spinner-fm'>
-          <MDBSpinner className='m-5' size="lg" role='status' color='light'>
+        {isLoading && <div className='spinner-fm-back'>
+          <MDBSpinner className='m-5 spinner-fm' size="lg" role='status' color='light'>
             <span className='visually-hidden'>Loading...</span>
           </MDBSpinner>
         </div>}
