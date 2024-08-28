@@ -129,7 +129,7 @@ const AddProduct = () => {
 
                     if (imageResponse.status === 200) {
                         const imageUrl = imageResponse.data.url;
-                        console.log("Image uploaded successfully:", imageUrl);
+                        console.log("Image uploaded successfully:");
 
                         // Send image association request
                         const imageAssociationResponse = await ax1.post("/api/addImage", {
@@ -166,6 +166,7 @@ const AddProduct = () => {
             console.error("Error creating product:", error);
         }
         resetInfo();
+        setIsLoading(false);
     };
 
     // if (isLoading) {
@@ -174,11 +175,11 @@ const AddProduct = () => {
     if (useUserAuth.getState().id != null)
         return (
             <section>
-                <div className='d-flex justify-content-center spinner-fm'>
+                {isLoading && <div className='d-flex justify-content-center spinner-fm'>
                     <MDBSpinner className='m-5' role='status' color='light'>
                         <span className='visually-hidden'>Loading...</span>
                     </MDBSpinner>
-                </div>
+                </div>}
                 <MDBContainer className="py-5">
                     {/* <form onSubmit={handleSubmit}> */}
                     <MDBRow>

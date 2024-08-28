@@ -7,7 +7,8 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBIcon,
-  MDBBtn
+  MDBBtn,
+  MDBSpinner
 } from "mdb-react-ui-kit";
 import { useUserAuth } from '../store';
 import axios from 'axios';
@@ -34,6 +35,8 @@ const FavoritesPage = () => {
   const [favorites, setFavorites] = useState([]);
   const [favoritesUpdated, setFavoritesUpdated] = useState(false);
   const [favoritesNb, setFavoritesNb] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const ax1 = axios.create({
     baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
@@ -54,6 +57,7 @@ const FavoritesPage = () => {
   }
 
   const addFavorites = async (id) => {
+    setIsLoading(true);
     if (favorites.length > 0 && favorites.includes(id)) {
       const response = await ax1.post("/api/removeFavorites", {
         id: id,
@@ -74,6 +78,7 @@ const FavoritesPage = () => {
       }
     }
     setFavoritesUpdated(!favoritesUpdated);
+    setIsLoading(false);
   }
 
 
@@ -116,6 +121,11 @@ const FavoritesPage = () => {
   if (useUserAuth.getState().id != null)
     return (
       <MDBContainer fluid className="my-5">
+        {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+          <MDBSpinner className='m-5' role='status' color='light'>
+            <span className='visually-hidden'>Loading...</span>
+          </MDBSpinner>
+        </div>}
         <MDBRow>
           {products.map(product => (
             <MDBCol md="6" lg="4" xl="3" sm="6" xs="6" className="mb-4 mb-lg-0">

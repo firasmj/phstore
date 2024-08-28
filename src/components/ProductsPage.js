@@ -22,6 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import { MDBSpinner } from 'mdb-react-ui-kit';
 
 const ProductsPage = () => {
 
@@ -44,6 +45,8 @@ const ProductsPage = () => {
   const [favoritesNb, setFavoritesNb] = useState([]);
   const [sortMethod, setSortMethod] = useState('');
   const [filter, setFilter] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const ax1 = axios.create({
     baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
@@ -66,6 +69,7 @@ const ProductsPage = () => {
   const addFavorites = async (id) => {
     // const id = e.target.value;
     // console.log(id);
+    setIsLoading(true);
     if (useUserAuth.getState().username != '') {
       if (favorites.length > 0 && favorites.includes(id)) {
         const response = await ax1.post("/api/removeFavorites", {
@@ -93,6 +97,7 @@ const ProductsPage = () => {
       // setFavoritesUpdated(false);
       setSortMethod('');
       setFavoritesUpdated(!favoritesUpdated);
+      setIsLoading(false);
     } else {
       navigate("/Signup");
     }
@@ -162,6 +167,7 @@ const ProductsPage = () => {
   ];
 
   const sort1 = async (sort) => {
+    setIsLoading(true);
     // setFilter('');
     // console.log(sort);
     if (sort == 'none') {
@@ -198,10 +204,12 @@ const ProductsPage = () => {
       setProducts(response.data);
       // }
     }
+    setIsLoading(false);
   }
 
   const filter1 = async (e) => {
     const filter2 = e.target.value;
+    setIsLoading(true);
     // console.log(filter2);
     setSortMethod('');
     if (filter2 == 'all') {
@@ -212,10 +220,16 @@ const ProductsPage = () => {
       const response = await ax1.get(`/api/getProductsByType/${filter2}`);
       setProducts(response.data);
     }
+    setIsLoading(false);
   }
 
   return (
     <MDBContainer fluid className="my-5">
+      {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+        <MDBSpinner className='m-5' role='status' color='light'>
+          <span className='visually-hidden'>Loading...</span>
+        </MDBSpinner>
+      </div>}
       <MDBRow className='m-auto'>
         <MDBCol lg={12} className='text-center mb-3'>
           {/* <MDBBtnGroup>

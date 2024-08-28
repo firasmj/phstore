@@ -52,6 +52,7 @@ const UserProfile = () => {
 
 
   const updateData = async () => {
+    setIsLoading(true);
     try {
       const response = await ax1.post('/api/login', {
         email: data.email,
@@ -76,6 +77,7 @@ const UserProfile = () => {
     } finally {
       setIsLoading(false); // Set loading to false after request completes
     }
+    setIsLoading(false);
     return true;
   }
 
@@ -113,8 +115,8 @@ const UserProfile = () => {
     e.preventDefault();
     setUpdated(false);
     if (validateForm) {
-      setData({ ...data, register: useUserAuth.getState().registered });
       setIsLoading(true);
+      setData({ ...data, register: useUserAuth.getState().registered });
       try {
         const response = await ax1.post("/api/updateUser", {
           oldUsername: useUserAuth.getState().username,
@@ -153,6 +155,7 @@ const UserProfile = () => {
 
   const deleteProduct = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setProductDeleted(false)
     const response = await ax1.post("/api/deleteProduct", {
       id: parseInt(e.target.value)
@@ -163,11 +166,13 @@ const UserProfile = () => {
     } else {
       setProductDeleted(true)
     }
+    setIsLoading(false);
     // setProductDeleted(true);
   }
 
   const markSold = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setProductUpdated(false);
     try {
       const response = await ax1.post("/api/updateProductSold", {
@@ -180,6 +185,7 @@ const UserProfile = () => {
       setProductUpdated(false);
       console.log(err);
     }
+    setIsLoading(false);
     // setProductUpdated(!productUpdated);
   }
 
@@ -189,6 +195,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     const fetchFavorites = async () => {
+      setIsLoading(true);
       try {
         const favoritesnb = await ax1.get(`/api/getFavoritesNb`);
         setFavoritesNb(favoritesnb.data);
@@ -202,6 +209,7 @@ const UserProfile = () => {
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false);
     };
     fetchFavorites();
   }, [productDeleted, productUpdated]);

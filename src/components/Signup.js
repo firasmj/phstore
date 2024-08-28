@@ -72,14 +72,14 @@ function Signup() {
 
   useEffect(() => {
     if (userData.id != null) {
-      console.log("userData: " + JSON.stringify(userData));
+      // console.log("userData: " + JSON.stringify(userData));
       useUserAuth.setState(userData);
     }
   }, [userData]);
 
   useEffect(() => {
     if (useUserAuth.getState().id != null) {
-      console.log("useUserAuth: " + JSON.stringify(useUserAuth.getState()));
+      // console.log("useUserAuth: " + JSON.stringify(useUserAuth.getState()));
       navigate('/');
     }
   }, [useUserAuth.getState()]);

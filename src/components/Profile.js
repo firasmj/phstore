@@ -7,7 +7,8 @@ import {
     MDBIcon,
     MDBCard,
     MDBCardImage,
-    MDBCardBody
+    MDBCardBody,
+    MDBSpinner
 } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
@@ -42,12 +43,13 @@ const Profile = () => {
     const [favoritesUpdated, setFavoritesUpdated] = useState(false);
     const [favoritesNb, setFavoritesNb] = useState([]);
 
-
+    const [isLoading, setIsLoading] = useState(false);
     ////////////////
 
     const addFavorites = async (id) => {
         // const id = e.target.value;
         // console.log(id);
+        setIsLoading(true);
         if (useUserAuth.getState().username != '') {
             if (favorites.length > 0 && favorites.includes(id)) {
                 const response = await ax1.post("/api/removeFavorites", {
@@ -74,6 +76,7 @@ const Profile = () => {
             }
             // setFavoritesUpdated(false);
             setFavoritesUpdated(!favoritesUpdated);
+            setIsLoading(false);
         } else {
             navigate("/Signup");
         }
@@ -151,102 +154,107 @@ const Profile = () => {
 
     return (
         <section className='fm-light-section'>
+            {isLoading && <div className='d-flex justify-content-center spinner-fm'>
+                <MDBSpinner className='m-5' role='status' color='light'>
+                    <span className='visually-hidden'>Loading...</span>
+                </MDBSpinner>
+            </div>}
             {/* css not working */}
             <MDBContainer className="py-5">
-                    <MDBRow>
-                        <MDBCol lg="4">
-                            <MDBCard className="mb-4" data-aos="fade-up">
-                                {/* <p>{updated && `Information updated successfully!`}</p> */}
+                <MDBRow>
+                    <MDBCol lg="4">
+                        <MDBCard className="mb-4" data-aos="fade-up">
+                            {/* <p>{updated && `Information updated successfully!`}</p> */}
 
-                                <MDBCardBody className="text-center">
-                                    <MDBCardImage
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                        alt="avatar"
-                                        className="rounded-circle mb-2"
-                                        style={{ width: '150px' }}
-                                        fluid />
-                                    <h3><p className="text-muted mb-1">{user.username}</p></h3>
-                                    <p className="text-muted mb-4">{user.address}</p>
-                                    <div className="d-flex justify-content-center mb-2">
-                                        {user.bio}
-                                    </div>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </MDBCol>
-                        <MDBCol lg="8">
-                            <MDBRow data-aos="fade-up">
-                                {products.map(product => (product.status === "accepted" || product.status === "sold" ? (
-                                    <MDBCol md="6" lg="4" xl="3" sm="6" xs="6" className="mb-4 mb-lg-0">
-                                        <MDBCard className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
-                                            <div className="d-flex bg-primary text-white justify-content-between p-3 m-3">
-                                                <p className="small mb-0">{product.details}</p>
+                            <MDBCardBody className="text-center">
+                                <MDBCardImage
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                    alt="avatar"
+                                    className="rounded-circle mb-2"
+                                    style={{ width: '150px' }}
+                                    fluid />
+                                <h3><p className="text-muted mb-1">{user.username}</p></h3>
+                                <p className="text-muted mb-4">{user.address}</p>
+                                <div className="d-flex justify-content-center mb-2">
+                                    {user.bio}
+                                </div>
+                            </MDBCardBody>
+                        </MDBCard>
+                    </MDBCol>
+                    <MDBCol lg="8">
+                        <MDBRow data-aos="fade-up">
+                            {products.map(product => (product.status === "accepted" || product.status === "sold" ? (
+                                <MDBCol md="6" lg="4" xl="3" sm="6" xs="6" className="mb-4 mb-lg-0">
+                                    <MDBCard className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
+                                        <div className="d-flex bg-primary text-white justify-content-between p-3 m-3">
+                                            <p className="small mb-0">{product.details}</p>
+                                        </div>
+                                    ) : (
+                                        <div className="d-flex justify-content-between p-3">
+                                            <p className="lead mb-0">{product.name}</p>
+                                            <div
+                                                className="bg-light rounded d-flex align-items-center justify-content-center shadow-1-strong"
+                                                style={{ width: "70px", height: "20px" }}
+                                            >
+                                                <p className="text-secondary mb-0 small">{product.username}</p>
                                             </div>
-                                        ) : (
-                                            <div className="d-flex justify-content-between p-3">
-                                                <p className="lead mb-0">{product.name}</p>
-                                                <div
-                                                    className="bg-light rounded d-flex align-items-center justify-content-center shadow-1-strong"
-                                                    style={{ width: "70px", height: "20px" }}
-                                                >
-                                                    <p className="text-secondary mb-0 small">{product.username}</p>
+                                        </div>
+                                    )}
+                                        <MDBCardImage
+                                            src={product.image_url}
+                                            position="top"
+                                            alt={product.type}
+                                        />
+                                        <MDBCardBody>
+                                            <div className="d-flex justify-content-between">
+                                                <p className="small">
+                                                    <a href="#!" className="text-muted">
+                                                        {product.type}
+                                                    </a>
+                                                </p>
+                                                <p className="small text-danger">
+                                                    <s>${(parseInt(product.price) + parseInt(product.price * 0.2))}</s>
+                                                </p>
+                                            </div>
+
+                                            <div className="d-flex justify-content-between mb-3">
+                                                <h5 className="mb-0">{product.name}</h5>
+                                                <h5 className="text-dark mb-0">${product.price}</h5>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <p class="text-muted mb-0">
+                                                    Available: <span class="fw-bold">{product.quantity}</span>
+                                                </p>
+                                                <div class="ms-auto text-warning">
+                                                    <MDBIcon fas icon="star" />
+                                                    <MDBIcon fas icon="star" />
+                                                    <MDBIcon fas icon="star" />
+                                                    <MDBIcon fas icon="star" />
+                                                    <MDBIcon fas icon="star" />
                                                 </div>
                                             </div>
-                                        )}
-                                            <MDBCardImage
-                                                src={product.image_url}
-                                                position="top"
-                                                alt={product.type}
-                                            />
-                                            <MDBCardBody>
-                                                <div className="d-flex justify-content-between">
-                                                    <p className="small">
-                                                        <a href="#!" className="text-muted">
-                                                            {product.type}
-                                                        </a>
-                                                    </p>
-                                                    <p className="small text-danger">
-                                                        <s>${(parseInt(product.price) + parseInt(product.price * 0.2))}</s>
-                                                    </p>
-                                                </div>
-
-                                                <div className="d-flex justify-content-between mb-3">
-                                                    <h5 className="mb-0">{product.name}</h5>
-                                                    <h5 className="text-dark mb-0">${product.price}</h5>
-                                                </div>
-
-                                                <div class="d-flex justify-content-between mb-2">
-                                                    <p class="text-muted mb-0">
-                                                        Available: <span class="fw-bold">{product.quantity}</span>
-                                                    </p>
-                                                    <div class="ms-auto text-warning">
-                                                        <MDBIcon fas icon="star" />
-                                                        <MDBIcon fas icon="star" />
-                                                        <MDBIcon fas icon="star" />
-                                                        <MDBIcon fas icon="star" />
-                                                        <MDBIcon fas icon="star" />
-                                                    </div>
-                                                </div>
-                                                <div className="d-flex flex-column mt-4">
-                                                    <MDBBtn color="primary" size="sm" value={product.id} onClick={show}>
-                                                        Details
-                                                    </MDBBtn>
-                                                    {useUserAuth.getState().username !== '' ? ((favorites.length > 0 && favorites.includes(product.id)) ? (
-                                                        <MDBBtn color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}>
-                                                            <p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='white' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)} </small>Remove from favorites</p></MDBBtn>
-                                                    ) : (
-                                                        <MDBBtn outline color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}>
-                                                            <p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}</small>Add to favorites</p></MDBBtn>
-                                                    )) : (<></>
-                                                    )}
-                                                    {useUserAuth.getState().username === '' && (<MDBBtn outline color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}><p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}</small>Add to favorites</p></MDBBtn>)}
-                                                </div>
-                                            </MDBCardBody>
-                                        </MDBCard>
-                                    </MDBCol>
-                                ) : (<div></div>)))}
-                            </MDBRow>
-                        </MDBCol>
-                    </MDBRow>
+                                            <div className="d-flex flex-column mt-4">
+                                                <MDBBtn color="primary" size="sm" value={product.id} onClick={show}>
+                                                    Details
+                                                </MDBBtn>
+                                                {useUserAuth.getState().username !== '' ? ((favorites.length > 0 && favorites.includes(product.id)) ? (
+                                                    <MDBBtn color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}>
+                                                        <p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='white' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)} </small>Remove from favorites</p></MDBBtn>
+                                                ) : (
+                                                    <MDBBtn outline color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}>
+                                                        <p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}</small>Add to favorites</p></MDBBtn>
+                                                )) : (<></>
+                                                )}
+                                                {useUserAuth.getState().username === '' && (<MDBBtn outline color="primary" size="sm" className="mt-2" value={product.id} onClick={() => addFavorites(product.id)}><p><small className='mx-2'><FontAwesomeIcon icon={faStar} color='blue' title='favorites' beat className='mx-1' />{((favoritesNb != null) && (favoritesNb.length > 0) && (favoritesNb.find(product1 => product1.product_id === product.id)) ? (favoritesNb.find(product1 => product1.product_id === product.id).total_count) : 0)}</small>Add to favorites</p></MDBBtn>)}
+                                            </div>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCol>
+                            ) : (<div></div>)))}
+                        </MDBRow>
+                    </MDBCol>
+                </MDBRow>
             </MDBContainer>
         </section>
     );
