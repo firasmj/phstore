@@ -145,7 +145,7 @@ function Signup() {
   return (
     <div className="auth-wrapper" data-aos="fade-up">
       {isLoading && <div className='d-flex justify-content-center spinner-fm'>
-        <MDBSpinner className='m-5' role='status' color='light'>
+        <MDBSpinner className='m-5' role='status' size="lg" color='light'>
           <span className='visually-hidden'>Loading...</span>
         </MDBSpinner>
       </div>}

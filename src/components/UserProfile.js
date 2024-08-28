@@ -246,7 +246,7 @@ const UserProfile = () => {
     return (
       <section className='fm-light-section'>
         {isLoading && <div className='d-flex justify-content-center spinner-fm'>
-          <MDBSpinner className='m-5' role='status' color='light'>
+          <MDBSpinner className='m-5' size="lg" role='status' color='light'>
             <span className='visually-hidden'>Loading...</span>
           </MDBSpinner>
         </div>}
