@@ -234,7 +234,7 @@ const ProductsPage = () => {
               </MDBDropdown>
             </MDBBtnGroup> */}
           <MDBBtnGroup aria-label='Basic example'>
-            <p className='text-white m-auto px-2'>Sort By</p>
+            {/* <p className='text-white m-auto px-2'>Sort By</p> */}
             {sortMethod == '' ? <MDBBtn onClick={() => sort1('none')}>None</MDBBtn> : <MDBBtn onClick={() => sort1('none')} color='secondary'>None</MDBBtn>}
             {sortMethod == 'stars' ? <MDBBtn onClick={() => sort1('stars')} active>By Stars</MDBBtn> : <MDBBtn onClick={() => sort1('stars')} color='secondary'>Stars</MDBBtn>}
             {sortMethod == 'p.price ASC' ? <MDBBtn onClick={() => sort1('p.price ASC')} active>Price Low-high</MDBBtn> : <MDBBtn onClick={() => sort1('p.price ASC')} color='secondary'>Price Low-high</MDBBtn>}
