@@ -123,6 +123,7 @@ const DataTable = () => {
                     <input
                         type="checkbox"
                         // checked={checkedItems.includes(product.id)}
+                        entries={100}
                         value={product.id}
                         onChange={handleCheckboxChange(product.id)}
                     />
