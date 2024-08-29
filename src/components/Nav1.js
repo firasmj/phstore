@@ -30,10 +30,10 @@ function Nav1() {
 
     const navigate = useNavigate();
 
-    const Logout = () => {
-        useUserAuth((state) => state.userLogout);
+    const Logout = async () => {
         localStorage.removeItem('userAuthState');
-        navigate("/");
+        window.location.reload();
+        // navigate("/");
     }
 
     var id = useUserAuth.getState().id;
