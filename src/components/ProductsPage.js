@@ -26,6 +26,21 @@ import { MDBSpinner } from 'mdb-react-ui-kit';
 
 const ProductsPage = () => {
 
+  const retrieveState = () => {
+    const storedState = localStorage.getItem('userAuthState');
+    console.log(storedState);
+    return storedState != null ? JSON.parse(storedState) : {
+      id: null,
+      username: '',
+      email: '',
+      password: '',
+      registered: '',
+      address: '',
+      bio: ''
+    };
+  }
+  useUserAuth.setState(retrieveState);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -258,7 +273,7 @@ const ProductsPage = () => {
         </MDBCol>
         {products.map(product => (
           <MDBCol className="mb-2 px-0">
-            <MDBCard style={{ width: '10.3rem', fontSize: 'x-small'}} size="sm" className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
+            <MDBCard style={{ width: '10.3rem', fontSize: 'x-small' }} size="sm" className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
               <div className="d-flex bg-primary text-white justify-content-between p-3 m-3">
                 <p className="small mb-0">{product.details}</p>
               </div>
@@ -291,8 +306,8 @@ const ProductsPage = () => {
                 </div>
 
                 <div className="d-flex justify-content-between mb-3">
-                  <h6 className="mb-0" style={{fontSize:'0.95rem'}}>{product.name}</h6>
-                  <h6 className="text-dark mb-0 mx-1" style={{fontSize:'0.9rem'}}>${product.price}</h6>
+                  <h6 className="mb-0" style={{ fontSize: '0.95rem' }}>{product.name}</h6>
+                  <h6 className="text-dark mb-0 mx-1" style={{ fontSize: '0.9rem' }}>${product.price}</h6>
                 </div>
 
                 <div class="d-flex justify-content-between mb-2">

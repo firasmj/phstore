@@ -22,6 +22,21 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
 
+    const retrieveState = () => {
+        const storedState = localStorage.getItem('userAuthState');
+        console.log(storedState);
+        return storedState != null ? JSON.parse(storedState) : {
+            id: null,
+            username: '',
+            email: '',
+            password: '',
+            registered: '',
+            address: '',
+            bio: ''
+        };
+    }
+    useUserAuth.setState(retrieveState);
+
     const { userId } = useParams();
 
 

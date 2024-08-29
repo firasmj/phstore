@@ -24,6 +24,21 @@ import '../css1.css';
 
 const AddProduct = () => {
 
+    const retrieveState = () => {
+        const storedState = localStorage.getItem('userAuthState');
+        console.log(storedState);
+        return storedState != null ? JSON.parse(storedState) : {
+            id: null,
+            username: '',
+            email: '',
+            password: '',
+            registered: '',
+            address: '',
+            bio: ''
+        };
+    }
+    useUserAuth.setState(retrieveState);
+
     const ax1 = axios.create({
         baseURL: `${process.env.REACT_APP_BACKEND_URL}/`,
     });
