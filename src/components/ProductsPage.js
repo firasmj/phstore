@@ -249,11 +249,11 @@ const ProductsPage = () => {
             </MDBBtnGroup> */}
           <MDBBtnGroup aria-label='Basic example'>
             {/* <p className='text-white m-auto px-2'>Sort By</p> */}
-            {sortMethod == '' ? <MDBBtn onClick={() => sort1('none')}>None</MDBBtn> : <MDBBtn onClick={() => sort1('none')} color='secondary'>None</MDBBtn>}
-            {sortMethod == 'stars' ? <MDBBtn onClick={() => sort1('stars')} active>By Stars</MDBBtn> : <MDBBtn onClick={() => sort1('stars')} color='secondary'>Stars</MDBBtn>}
-            {sortMethod == 'p.price ASC' ? <MDBBtn onClick={() => sort1('p.price ASC')} active>Price Low-high</MDBBtn> : <MDBBtn onClick={() => sort1('p.price ASC')} color='secondary'>Price Low-high</MDBBtn>}
-            {sortMethod == 'p.price DESC' ? <MDBBtn onClick={() => sort1('p.price DESC')} active>Price High-Low</MDBBtn> : <MDBBtn onClick={() => sort1('p.price DESC')} color='secondary'>Price High-Low</MDBBtn>}
-            {sortMethod == 'p.id DESC' ? <MDBBtn onClick={() => sort1('p.id DESC')} active>latest</MDBBtn> : <MDBBtn onClick={() => sort1('p.id DESC')} color='secondary'>latest</MDBBtn>}
+            {sortMethod == '' ? <MDBBtn size="sm" onClick={() => sort1('none')}>None</MDBBtn> : <MDBBtn size="sm" onClick={() => sort1('none')} color='secondary'>None</MDBBtn>}
+            {sortMethod == 'stars' ? <MDBBtn size="sm" onClick={() => sort1('stars')} active>By Stars</MDBBtn> : <MDBBtn size="sm" onClick={() => sort1('stars')} color='secondary'>Stars</MDBBtn>}
+            {sortMethod == 'p.price ASC' ? <MDBBtn size="sm" onClick={() => sort1('p.price ASC')} active>Price Low-high</MDBBtn> : <MDBBtn size="sm" onClick={() => sort1('p.price ASC')} color='secondary'>Price Low-high</MDBBtn>}
+            {sortMethod == 'p.price DESC' ? <MDBBtn size="sm" onClick={() => sort1('p.price DESC')} active>Price High-Low</MDBBtn> : <MDBBtn size="sm" onClick={() => sort1('p.price DESC')} color='secondary'>Price High-Low</MDBBtn>}
+            {sortMethod == 'p.id DESC' ? <MDBBtn size="sm" onClick={() => sort1('p.id DESC')} active>latest</MDBBtn> : <MDBBtn size="sm" onClick={() => sort1('p.id DESC')} color='secondary'>latest</MDBBtn>}
           </MDBBtnGroup>
         </MDBCol>
         {products.map(product => (
@@ -291,8 +291,8 @@ const ProductsPage = () => {
                 </div>
 
                 <div className="d-flex justify-content-between mb-3">
-                  <h6 className="mb-0">{product.name}</h6>
-                  <h6 className="text-dark mb-0">${product.price}</h6>
+                  <h6 className="mb-0" style={{fontSize:'0.95rem'}}>{product.name}</h6>
+                  <h6 className="text-dark mb-0 mx-1" style={{fontSize:'0.9rem'}}>${product.price}</h6>
                 </div>
 
                 <div class="d-flex justify-content-between mb-2">
