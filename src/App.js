@@ -100,7 +100,7 @@ const App = () => {
           <Button className='shadow' style={{backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0'}}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
         </div>
         <Carousel
-          swipeable={false}
+          swipeable={true}
           draggable={false}
           showDots={true}
           responsive={responsive}
@@ -134,7 +134,7 @@ const App = () => {
           <Button className='shadow' style={{backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0'}}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
         </div>
         <Carousel
-          swipeable={false}
+          swipeable={true}
           draggable={false}
           showDots={true}
           responsive={responsive}
@@ -168,7 +168,7 @@ const App = () => {
           <Button className='shadow' style={{backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0'}}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
         </div>
         <Carousel
-          swipeable={false}
+          swipeable={true}
           draggable={false}
           showDots={true}
           responsive={responsive}
