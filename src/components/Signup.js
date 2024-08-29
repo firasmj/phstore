@@ -74,6 +74,7 @@ function Signup() {
     if (userData.id != null) {
       // console.log("userData: " + JSON.stringify(userData));
       useUserAuth.setState(userData);
+      localStorage.setItem('userAuthState', JSON.stringify(userData));
     }
   }, [userData]);
 

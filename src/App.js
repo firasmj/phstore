@@ -41,6 +41,24 @@ const App = () => {
     }
   };
 
+  
+  const retrieveState = () => {
+    const storedState = localStorage.getItem('userAuthState');
+    console.log(storedState);
+    return storedState != null ? JSON.parse(storedState) : {
+      id: null,
+      username: '',
+      email: '',
+      password: '',
+      registered: '',
+      address: '',
+      bio: ''};
+  }
+// const initialState = useUserAuth.retrieveState();
+useUserAuth.setState(retrieveState);
+// useUserAuth.setState(initialState || {});
+
+
   const [products, setProducts] = useState([]);
   const [mobilesElectronics, setMobilesElectronics] = useState([]);
   const [fashion, setFashion] = useState([]);

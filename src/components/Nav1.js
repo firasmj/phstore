@@ -11,12 +11,28 @@ import { SearchResultsList } from "./SearchResultsList";
 
 function Nav1() {
 
+    const retrieveState = () => {
+        const storedState = localStorage.getItem('userAuthState');
+        return storedState != null ? JSON.parse(storedState) : {
+            id: null,
+            username: '',
+            email: '',
+            password: '',
+            registered: '',
+            address: '',
+            bio: ''};
+      }
+    // const initialState = useUserAuth.retrieveState();
+    useUserAuth.setState(retrieveState);
+
+
     const [results, setResults] = useState([]);
 
     const navigate = useNavigate();
 
     const Logout = () => {
         useUserAuth((state) => state.userLogout);
+        localStorage.removeItem('userAuthState');
         navigate("/");
     }
 
