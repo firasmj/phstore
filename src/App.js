@@ -119,7 +119,7 @@ const App = () => {
           rewind="true"
           rewindWithAnimation="true"
         >
-          {products.map(product => (
+          {products!=[] && products.map(product => (
             //<p key={user.id}>{user.name}</p>
             ((product.status == "accepted") && (product.visibility == 1) && <ProductCard key={product.id} item={product} />)
           ))}
@@ -153,7 +153,7 @@ const App = () => {
           rewind="true"
           rewindWithAnimation="true"
         >
-          {mobilesElectronics.map(product => (
+          {mobilesElectronics!=[] && mobilesElectronics.map(product => (
             //<p key={user.id}>{user.name}</p>
             ((product.status == "accepted") && (product.visibility == 1) && <ProductCard key={product.id} item={product} />)
           ))}
@@ -187,7 +187,7 @@ const App = () => {
           rewind="true"
           rewindWithAnimation="true"
         >
-          {fashion.map(product => (
+          {fashion!=[] && fashion.map(product => (
             //<p key={user.id}>{user.name}</p>
             ((product.status == "accepted") && (product.visibility == 1) && <ProductCard key={product.id} item={product} />)
           ))}
