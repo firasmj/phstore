@@ -258,7 +258,7 @@ const ProductsPage = () => {
         </MDBCol>
         {products.map(product => (
           <MDBCol className="mb-2 px-0">
-            <MDBCard style={{ width: '12rem', fontSize: 'x-small'}} size="sm" className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
+            <MDBCard style={{ width: '10.3rem', fontSize: 'x-small'}} size="sm" className='h-100' data-aos="zoom-in">{showProducts == product.id ? (
               <div className="d-flex bg-primary text-white justify-content-between p-3 m-3">
                 <p className="small mb-0">{product.details}</p>
               </div>
