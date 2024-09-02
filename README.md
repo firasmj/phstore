@@ -8,6 +8,8 @@ A dynamic React web app marketplace where users can:
 
 an admin page to manage all the users' products by accepting, rejecting, and deleting them in a sortable datatable with all necessary functionalities.
 
+back-end repository is private for now
+
 live at:
 https://phstore1.netlify.app/
 
