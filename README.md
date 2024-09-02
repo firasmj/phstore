@@ -1,2 +1,2 @@
 live at:
-https://main--phstore1.netlify.app/
+https://phstore1.netlify.app/
