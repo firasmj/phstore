@@ -11,6 +11,6 @@ an admin page to manage all the users' products by accepting, rejecting, and del
 live at:
 https://phstore1.netlify.app/
 
-https://github.com/user-attachments/assets/e7d07e24-e00d-4206-bf3f-8fdb37547f97
+
 
 
