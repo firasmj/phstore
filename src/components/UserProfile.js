@@ -78,6 +78,7 @@ const UserProfile = () => {
         console.log('Login successful');
         var res1 = response.data;
         useUserAuth.setState(res1);
+        localStorage.setItem('userAuthState', JSON.stringify(res1));
         setData(res1);
         // navigate('/');
       } else if (response.status === 204) {
@@ -148,8 +149,8 @@ const UserProfile = () => {
         } else if (response.status === 200) {
           setUpdated(true);
           console.log(response);
-          setIsLoading(false);
           updateData();
+          setIsLoading(false);
         }
       } catch (err) {
         setIsLoading(false)
