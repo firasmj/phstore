@@ -14,7 +14,7 @@ live at:
 https://phstore1.netlify.app/
 
 
-the project need more cleaning for some unused components
+the project needs more cleaning for some unused components
 
 
 
