@@ -195,9 +195,9 @@ const AddProduct = () => {
                         <span className='visually-hidden'>Loading...</span>
                     </MDBSpinner>
                 </div>}
-                <MDBContainer className="py-5 pt-4">
+                <MDBContainer className="py-5 pt-5">
                     {/* <form onSubmit={handleSubmit}> */}
-                    <MDBRow>
+                    <MDBRow className="pt-5">
                         <MDBCol lg="12" className="text-center d-flex justify-content-center mb-2">
                             <MDBCard className="mb-4" data-aos="fade-up">
                                 <MDBCardBody className="text-center d-flex justify-content-center mb-2 p-4">

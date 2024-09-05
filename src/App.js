@@ -101,7 +101,7 @@ useUserAuth.setState(retrieveState);
     Aos.init({ duration: 2000 });
   }, []);
   return (
-    <div className='mt-5'>
+    <div className='mt-5 pt-4'>
     <div className='cont1'>
       <div className='containerhz1' style={{background:'none', padding: '0', margin: '0'}}>
         <h1 style={{ paddingBottom: '1.3rem', marginTop: '1.5rem' }} data-aos="fade-up">

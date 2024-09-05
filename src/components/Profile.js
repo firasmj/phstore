@@ -168,7 +168,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     return (
-        <section className='fm-light-section'>
+        <section className='fm-light-section pt-5'>
             {isLoading && <div className='spinner-fm-back'>
                 <MDBSpinner className='m-5 spinner-fm' size="lg" role='status' color='light'>
                     <span className='visually-hidden'>Loading...</span>

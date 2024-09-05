@@ -17,7 +17,7 @@ const AdminPage = () => {
         return (
             <section>
                 {/* style={{ backgroundColor: '#eee' }} */}
-                <MDBContainer className="py-5 pt-4">
+                <MDBContainer className="py-5 pt-5">
                     <h1 style={{ paddingBottom: '1.3rem', marginTop: '1.5rem' }} data-aos="fade-up">
                         <p className='text-center' style={{ color: 'blue' }}> Welcome {useAdminAuth.getState().id != null ? (useAdminAuth.getState().username) : <></>}</p>
                     </h1>

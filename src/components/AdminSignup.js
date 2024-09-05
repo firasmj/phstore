@@ -96,7 +96,7 @@ function AdminSignup() {
     };
 
     return (
-        <div className="auth-wrapper pt-4" data-aos="fade-up">
+        <div className="auth-wrapper pt-5" data-aos="fade-up">
             {isLoading && <div className='spinner-fm-back'>
                 <MDBSpinner className='m-5 spinner-fm' size="lg" role='status' color='light'>
                     <span className='visually-hidden'>Loading...</span>

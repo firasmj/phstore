@@ -239,7 +239,7 @@ const ProductsPage = () => {
   }
 
   return (
-    <MDBContainer fluid className="my-5 pt-4">
+    <MDBContainer fluid className="my-5 pt-5">
       {isLoading && <div className='spinner-fm-back'>
         <MDBSpinner className='m-5 spinner-fm' size="lg" role='status' color='light'>
           <span className='visually-hidden'>Loading...</span>
