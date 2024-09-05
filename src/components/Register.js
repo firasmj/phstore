@@ -133,10 +133,11 @@ function Register() {
                 });
                 if (response.status === 200) {
                     // Handle successful response
-                    console.log('Login successful');
+                    console.log('Register successful');
                     setValidated1(true);
                     var res1 = response.data[0];
                     setUserData(response.data);
+                    navigate('/Signup');
                 } else if (response.status === 204) {
                     // Handle case where there's no data
                     console.log('No data returned.');
