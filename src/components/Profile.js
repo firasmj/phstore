@@ -175,7 +175,7 @@ const Profile = () => {
                 </MDBSpinner>
             </div>}
             {/* css not working */}
-            <MDBContainer className="py-5">
+            <MDBContainer className="py-5 pt-4">
                 <MDBRow>
                     <MDBCol lg="4">
                         <MDBCard className="mb-4" data-aos="fade-up">

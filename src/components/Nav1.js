@@ -45,7 +45,7 @@ function Nav1() {
     return (
         <div className="">
             {/* <h1 id="mainheader"><a href="/">PH Store</a></h1> */}
-            <div className="navbar navbar-expand-md navbar-dark navv">
+            <div className="navbar navbar-expand-md navbar-dark navv fixed-top">
                 <div className="container-fluid">
                     <div><Link className="nav-link" to="/"><img src="../gfxphlogo.png" className="logo"></img></Link></div><h1 id="mainheader"><Link className="nav-link navbar-brand" to="/">PH Marketplace</Link></h1>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>

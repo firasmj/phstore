@@ -267,7 +267,7 @@ const UserProfile = () => {
           </MDBSpinner>
         </div>}
         {/* css not working */}
-        <MDBContainer className="py-5">
+        <MDBContainer className="py-5 pt-4">
           {/* <form onSubmit={update1}> */}
           <MDBRow>
             <MDBCol lg="4">
