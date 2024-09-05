@@ -66,7 +66,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right,#18077c6b, #3456ffaf);
+    background: linear-gradient(to right,#18067cdf, #3456ffee);
     /* filter:blur(1px); */
     /* border-radius: 1rem; */
     /* border: #07135109 1.5px; */
@@ -403,7 +403,7 @@
 
   .navv {
     /* margin-left: 3%;*/
-    background: linear-gradient(to right,#18077c6b, #3456ffaf);
+    background: linear-gradient(to right,#18067cdf, #3456ffee);
     /* border-radius: 2rem; */
   }
 
