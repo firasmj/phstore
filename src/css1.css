@@ -74,7 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #050c72df, #324ac3ee);
+    background: linear-gradient(to right, #050c72df, #0f29a6ee);
     /* filter:blur(1px); */
     /* border-radius: 1rem; */
     /* border: #07135109 1.5px; */
@@ -110,7 +110,7 @@
     /* background: -webkit-linear-gradient(left, #02befb, #7775e98b, #3164d199, rgba(0, 0, 255, 0.276));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Madani, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3vw;
     margin-top: 0;
     animation: fadeIn 3s ease-in-out infinite;
@@ -424,7 +424,7 @@
 
   .navv {
     /* margin-left: 3%;*/
-    background: linear-gradient(to right, #050c72df, #324ac3ee);
+    background: linear-gradient(to right, #050c72df, #0f29a6ee);
     /* border-radius: 2rem; */
   }
 
@@ -458,7 +458,7 @@
     /* background: -webkit-linear-gradient(left, #02befb, #7775e98b, #3164d199, rgba(0, 0, 255, 0.276));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Madani, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3vw;
     margin-top: 0;
     animation: fadeIn 3s ease-in-out infinite;
@@ -500,12 +500,12 @@
   }
 
 
-  .welcome h3,
-  h2 {
+  .welcome h3 
+  {
     font-size: 4vw;
     text-align: center;
     /* text-decoration: underline; */
-    font-family: madani;
+    /* font-family: madani; */
   }
 
   .cont1 {
@@ -525,10 +525,10 @@
   }
 
   .containerhz1 h2 {
-    padding-top: 1rem;
     margin-bottom: 1px;
     color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    text-align: center;
+
   }
 
   .containerhz2 {
