@@ -1,3 +1,11 @@
+.welcomeh1 {
+  padding-bottom: 1.3rem;
+  margin-top: 1.5rem;
+  color: #0400ff;
+  -webkit-text-fill-color: rgb(145, 196, 255);
+  font-weight: 800;
+}
+
 /* .nav ul{
     list-style-type: none;
     background-color: blue;
@@ -66,11 +74,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right,#18067cdf, #3456ffee);
+    background: linear-gradient(to right, #050c72df, #324ac3ee);
     /* filter:blur(1px); */
     /* border-radius: 1rem; */
     /* border: #07135109 1.5px; */
     /* border-style:ridge ; */
+  }
+
+  .nitem{
+    color: #000000;
+    -webkit-text-fill-color: #ffffff;
+  }
+  .nitem:hover{
+    -webkit-text-fill-color: #808aff;
+    transform: scale(1.05);
+  }
+  .nitem-search:hover{
+    -webkit-text-fill-color: #808aff;
+    transform: scale(1.05);
   }
 
 
@@ -260,12 +281,12 @@
 
   .containerhz1 {
     /* background-color: #001580; */
-    background-color: rgba(17, 0, 93, 0.466);
-    width: 90%;
+    background-color: rgba(9, 11, 150, 0.405);
+    width: 95%;
     margin: auto;
     padding-bottom: 2rem;
     padding-top: 1rem;
-    border-radius: 2em;
+    border-radius: 0.8rem;
     margin-bottom: 1rem;
   }
 
@@ -403,7 +424,7 @@
 
   .navv {
     /* margin-left: 3%;*/
-    background: linear-gradient(to right,#18067cdf, #3456ffee);
+    background: linear-gradient(to right, #091392df, #2c3e96ee);
     /* border-radius: 2rem; */
   }
 
@@ -429,7 +450,7 @@
     animation: fadeIn 3s ease-in-out infinite;
     margin: auto;
   }
-  
+
   #mainheader a {
     text-decoration: none;
     color: rgb(173, 202, 235);
@@ -479,12 +500,13 @@
   }
 
   .containerhz1 {
-    background-color: rgba(17, 0, 93, 0.466);
+    /* background-color: #001580; */
+    background-color: rgba(9, 11, 150, 0.405);
     width: 97%;
     margin: auto;
     padding-bottom: 2rem;
     padding-top: 1rem;
-    border-radius: 2em;
+    border-radius: 0.8rem;
     margin-bottom: 1rem;
   }
 
@@ -1107,7 +1129,7 @@ input:focus {
   }
 }
 
-.modal1h{
+.modal1h {
   background-color: rgba(47, 0, 255, 0.764);
   border-radius: 10px;
   /* filter: blur(5px); */
@@ -1115,25 +1137,23 @@ input:focus {
 }
 
 .custom-modal-1 .modal-content {
-  background: linear-gradient(
-      45deg,
+  background: linear-gradient(45deg,
       #0320c7,
       #0d208ce5,
-      #15005584
-  );
+      #15005584);
   color: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px
-      rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* transform: rotate(-1deg); */
   transform: scale(0.75) rotate(-0.2deg);
   animation: float 5s ease-in-out infinite;
 }
+
 .custom-modal-1 .modal-content:hover {
   transform: scale(0.82) rotate(0deg);
   transition: transform 0.2s;
 }
 
-.banner-ph{
-  box-shadow: 0 0 15px 5px rgba(81, 51, 253, 0.741);
+.banner-ph:hover {
+  box-shadow: 0 0 15px 5px rgba(75, 69, 255, 0.741);
 }
