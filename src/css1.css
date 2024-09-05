@@ -462,12 +462,13 @@
     font-size: 3vw;
     margin-top: 0;
     animation: fadeIn 3s ease-in-out infinite;
+    /* box-shadow: 0px 6px 10px -4px rgb(7, 0, 60); */
     margin: auto;
   }
 
   #mainheader a {
     text-decoration: none;
-    color: rgb(173, 202, 235);
+    color: rgb(145, 196, 255);
   }
 
   body {
@@ -638,13 +639,20 @@
 
   .logo {
     /* transition: opacity 0.5s ease-in-out; */
-    width: 10vw;
-    padding: 0;
+    width: 3.5vw;
+    /* padding: 0; */
     /* margin: 20px; */
-    margin-left: 10%;
-    margin-bottom: 10px;
+
+    margin-left: 1rem;
+    margin-bottom: 3px;
     padding: 0;
+    /* padding-right: 1rem; */
     float: left;
+
+    max-width: 100px;
+    /* Adjust the maximum width as needed */
+    height: auto;
+    margin-right: 15px;
     animation: fadeIn 3s ease-in-out infinite;
   }
 
