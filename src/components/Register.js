@@ -29,6 +29,7 @@ function Register() {
     });
 
     const [validated1, setValidated1] = useState(false);
+    const [formSent, setFormSent] = useState(false);
 
     const [data, setData] = useState({
         username: '',
@@ -122,6 +123,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setValidated1(false);
+        setFormSent(false);
         const valid = await validateForm();
         if (valid) {
             setIsLoading(true);
@@ -135,15 +137,18 @@ function Register() {
                     // Handle successful response
                     console.log('Register successful');
                     setValidated1(true);
+                    setFormSent(true);
                     var res1 = response.data[0];
                     setUserData(response.data);
                     navigate('/Signup');
                 } else if (response.status === 204) {
                     // Handle case where there's no data
                     console.log('No data returned.');
+                    setFormSent(true);
                     setValidated1(false);
                 } else {
                     setValidated1(false);
+                    setFormSent(true);
                 }
                 console.log(response)
             } catch (err) {
@@ -195,6 +200,7 @@ function Register() {
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
                         <Link to={"/Signup"}><p className="forgot-password text-right">Already have an account? Login</p></Link>
+                        <p>{formSent ? (validated1 ? "Registered Successfully!" : "Something went wrong.") : " "}</p>
                     </form>
                 </div>
             </div>
