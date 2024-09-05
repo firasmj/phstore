@@ -424,7 +424,7 @@
 
   .navv {
     /* margin-left: 3%;*/
-    background: linear-gradient(to right, #091392df, #2c3e96ee);
+    background: linear-gradient(to right, #050c72df, #324ac3ee);
     /* border-radius: 2rem; */
   }
 
@@ -433,6 +433,20 @@
     text-decoration: none;
     color: white;
   }
+
+  .nitem{
+    color: #000000;
+    -webkit-text-fill-color: #ffffff;
+  }
+  .nitem:hover{
+    -webkit-text-fill-color: #808aff;
+    transform: scale(1.02);
+  }
+  .nitem-search:hover{
+    -webkit-text-fill-color: #808aff;
+    transform: scale(1.02);
+  }
+
 
   #mainheader {
     text-align: center;

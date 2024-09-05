@@ -213,7 +213,7 @@ const App = () => {
           </Carousel>
         </div>
 
-        <div className='jumbotron jumbotron-fluid mt-4 mx-4' data-aos="slide-up">
+        <div className='jumbotron jumbotron-fluid mt-4 mx-1' data-aos="slide-up">
           {useUserAuth.getState().username == '' ? (
             <Link to={"/Signup"}><img src='phstore_banner3.webp' className='img-fluid banner-ph'></img></Link>
           ) : (
