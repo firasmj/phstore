@@ -1102,17 +1102,19 @@ input:focus {
 .custom-modal-1 .modal-content {
   background: linear-gradient(
       45deg,
-      #0026ff,
-      #2a0056bb
+      #0320c7,
+      #0d208ce5,
+      #15005584
   );
   color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px
       rgba(0, 0, 0, 0.2);
-  transform: rotate(-1deg);
+  /* transform: rotate(-1deg); */
+  transform: scale(0.75) rotate(-1deg);
 }
 .custom-modal-1 .modal-content:hover {
-  transform: scale(1.1) rotate(0deg);
+  transform: scale(0.82) rotate(0deg);
   transition: transform 0.2s;
 }
 
