@@ -20,8 +20,9 @@ function Nav1() {
             password: '',
             registered: '',
             address: '',
-            bio: ''};
-      }
+            bio: ''
+        };
+    }
     // const initialState = useUserAuth.retrieveState();
     useUserAuth.setState(retrieveState);
 
@@ -51,14 +52,14 @@ function Nav1() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/ProductsPage">Products</Link></li>
-                            {id != null ? (<li className="nav-item"><Link className="nav-link" to="/FavoritesPage">Favorites</Link></li>) : (<li className="nav-item"><Link className="nav-link" to="/Signup">Favorites</Link></li>)}
-                            {id == null && <li className="nav-item"><Link className="nav-link" to="/Register">Login / Register</Link></li>}
-                            {id != null && <li className="nav-item"><Link className="nav-link" to="/" onClick={Logout}>Log Out</Link></li>}
-                            {id != null && <li className="nav-item"><Link className="nav-link" to="/UserProfileBoots">User Profile</Link></li>}
-                            {id != null && <li className="nav-item"><Link className="nav-link" to="/AddProduct">Add a Product</Link></li>}
-                            <li className="nav-item mx-2">
+                            <li className="nav-item nitem"><Link className="nav-link nitem" to="/">Home</Link></li>
+                            <li className="nitem"><Link className="nav-link nitem" to="/ProductsPage">Products</Link></li>
+                            {id != null ? (<li className=""><Link className="nav-link nitem" to="/FavoritesPage">Favorites</Link></li>) : (<li className="nav-item"><Link className="nav-link nitem" to="/Signup">Favorites</Link></li>)}
+                            {id == null && <li className="nav-item"><Link className="nav-link nitem" to="/Register">Login / Register</Link></li>}
+                            {id != null && <li className="nav-item"><Link className="nav-link nitem" to="/" onClick={Logout}>Log Out</Link></li>}
+                            {id != null && <li className="nav-item"><Link className="nav-link nitem" to="/UserProfileBoots">User Profile</Link></li>}
+                            {id != null && <li className="nav-item"><Link className="nav-link nitem" to="/AddProduct">Add a Product</Link></li>}
+                            <li className="nav-item nitem-search mx-2">
                                 <SearchBar setResults={setResults} />
                                 {results && results.length > 0 && <SearchResultsList results={results} />}
                             </li>
