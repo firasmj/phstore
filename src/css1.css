@@ -1092,6 +1092,21 @@ input:focus {
 
 /* ---------------- modal -------------*/
 
+@keyframes float {
+  0% {
+    rotate: 2deg;
+  }
+
+  50% {
+    rotate: -2deg;
+  }
+
+
+  100% {
+    rotate: 2deg;
+  }
+}
+
 .modal1h{
   background-color: rgba(47, 0, 255, 0.764);
   border-radius: 10px;
@@ -1111,10 +1126,11 @@ input:focus {
   box-shadow: 0 0 10px
       rgba(0, 0, 0, 0.2);
   /* transform: rotate(-1deg); */
-  transform: scale(0.85) rotate(-0.5deg);
+  transform: scale(0.75) rotate(-0.2deg);
+  animation: float 5s ease-in-out infinite;
 }
 .custom-modal-1 .modal-content:hover {
-  transform: scale(0.92) rotate(0deg);
+  transform: scale(0.82) rotate(0deg);
   transition: transform 0.2s;
 }
 
