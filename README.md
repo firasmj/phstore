@@ -15,6 +15,3 @@ https://phstore1.netlify.app/
 
 
 the project needs more cleaning for some unused components
-
-
-
