@@ -141,8 +141,8 @@ function Register() {
                     setFormSent(true);
                     // var res1 = response.data[0];
                     setUserData(response.data);
-                    useUserAuth.setState(userData);
-                    localStorage.setItem('userAuthState', JSON.stringify(userData));
+                    useUserAuth.setState(response.data);
+                    localStorage.setItem('userAuthState', JSON.stringify(response.data));
                     navigate('/');
                     // navigate('/Signup');
                 } else if (response.status === 204) {
