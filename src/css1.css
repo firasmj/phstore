@@ -1131,16 +1131,16 @@ input:focus {
 
 @keyframes float {
   0% {
-    rotate: 2deg;
+    rotate: 0.5deg;
   }
 
   50% {
-    rotate: -2deg;
+    rotate: -0.5deg;
   }
 
 
   100% {
-    rotate: 2deg;
+    rotate: 0.5deg;
   }
 }
 
@@ -1153,19 +1153,19 @@ input:focus {
 
 .custom-modal-1 .modal-content {
   background: linear-gradient(45deg,
-      #0320c7,
-      #0d208ce5,
-      #15005584);
+      #21328f,
+      #121f65e5,
+      #1d0d5784);
   color: white;
-  border-radius: 10px;
+  border-radius: 0.2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* transform: rotate(-1deg); */
-  transform: scale(0.75) rotate(-0.2deg);
+  transform: scale(0.79) rotate(-0.2deg);
   animation: float 5s ease-in-out infinite;
 }
 
 .custom-modal-1 .modal-content:hover {
-  transform: scale(0.82) rotate(0deg);
+  transform: scale(0.86) rotate(0deg);
   transition: transform 0.2s;
 }
 
