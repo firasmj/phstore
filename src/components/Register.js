@@ -138,9 +138,12 @@ function Register() {
                     console.log('Register successful');
                     setValidated1(true);
                     setFormSent(true);
-                    var res1 = response.data[0];
+                    // var res1 = response.data[0];
                     setUserData(response.data);
-                    navigate('/Signup');
+                    useUserAuth.setState(userData);
+                    localStorage.setItem('userAuthState', JSON.stringify(userData));
+                    navigate('/');
+                    // navigate('/Signup');
                 } else if (response.status === 204) {
                     // Handle case where there's no data
                     console.log('No data returned.');
