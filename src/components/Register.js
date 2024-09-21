@@ -5,6 +5,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { MDBSpinner } from 'mdb-react-ui-kit';
 import '../css1.css';
+import { useUserAuth } from '../store';
 
 function Register() {
 
