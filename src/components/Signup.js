@@ -59,7 +59,7 @@ function Signup() {
       newErrors.email = '';
     }
     // Example validation: Name is required
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&_^])[A-Za-z\d@.#$!%*?&_]{8,15}$/;
     if (!passwordRegex.test(data.password)) {
       newErrors.password = 'Password is required, should be between 8 to 15 characters and have special and capital characters.';
       isValid = false;
