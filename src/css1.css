@@ -1,9 +1,9 @@
 .welcomeh1 {
-  padding-bottom: 1.3rem;
-  margin-top: 1.5rem;
+  /* padding-bottom: 1rem; */
+  margin-top: 1rem;
   color: #0400ff;
   -webkit-text-fill-color: rgb(145, 196, 255);
-  font-weight: 800;
+  font-weight: 750;
 }
 
 /* .nav ul{
