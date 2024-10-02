@@ -132,6 +132,36 @@ function Signup() {
     }
   };
 
+  const guestLogin = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setFormSent(false);
+    try {
+      const response = await ax1.post('/api/login', {
+        email: "guest@gmail.com",
+        password: "Guest23$$"
+      });
+      if (!response.status == 200) {
+        setFormSent(true);
+        console.log('No data returned.');
+      } else {
+        // var dataa = response.data;
+        setFormSent(true);
+        setUserData(response.data);
+        // setUserData(dataa);
+        // useUserAuth.setState(dataa);
+        // localStorage.setItem('userAuthState', JSON.stringify(dataa));
+        // setIsLoading(false);
+        // navigate('/');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    setFormSent(true);
+    setIsLoading(false);
+  }
+
+
   // if (isLoading) {
   //   return <p>Loading...</p>;
 
@@ -152,8 +182,9 @@ function Signup() {
       </div>}
       <div className="auth-inner">
         <div className="">
+          <h3>Sign In</h3>
+          <div className="d-flex justify-content-end"><button onClick={guestLogin} className="btn btn-outline-primary">Login as guest</button></div>
           <form name="form1" onSubmit={handleSubmit}>
-            <h3>Sign In</h3>
             <div className="mb-3">
               <label>Email Address</label>
               <input name="email" onChange={handleChange('email')} type="email" className="form-control" placeholder="Enter Email" />

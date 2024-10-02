@@ -165,13 +165,36 @@ function Register() {
         }
     };
 
+    const guestLogin = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+          const response = await ax1.post('/api/login', {
+            email: "guest@gmail.com",
+            password: "Guest23$$"
+          });
+          if (!response.status == 200) {
+            console.log('No data returned');
+            // console.log(response);
+          } else {
+            var dataa = response.data;
+            setUserData(dataa);
+            useUserAuth.setState(dataa);
+            localStorage.setItem('userAuthState', JSON.stringify(dataa));
+            setIsLoading(false);
+            navigate('/');
+          }
+        } catch (err) {
+          console.log(err);
+        }
+        setIsLoading(false);
+      }
+    
+
     // if (isLoading) {
     //     return <p>Loading...</p>;
 
     // }
-
-
-
 
 
     return (
@@ -183,8 +206,9 @@ function Register() {
             </div>}
             <div className="auth-inner">
                 <div className="">
+                    <h3>Register a new user</h3>
+                    <div className="d-flex justify-content-end"><button onClick={guestLogin} className="btn btn-outline-primary">Login as guest</button></div>
                     <form name="form1" onSubmit={handleSubmit}>
-                        <h3>Register a new user</h3>
                         <div className="mb-3">
                             <label>Username</label>
                             <input name="username" onChange={handleChange('username')} type="text" className="form-control" placeholder="Enter Username" />
