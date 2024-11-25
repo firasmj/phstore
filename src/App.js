@@ -18,27 +18,12 @@ import { Button } from 'react-bootstrap';
 const App = () => {
 
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 6
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1050 },
-      items: 5
-    },
-    tablet: {
-      breakpoint: { max: 1050, min: 640 },
-      items: 3
-    },
-    tabletsmall: {
-      breakpoint: { max: 640, min: 400 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 400, min: 0 },
-      items: 2
-    }
+    superLargeDesktop: { breakpoint: { min: 1601 }, items: 6 },
+    desktop: { breakpoint: { max: 1600, min: 1250 }, items: 4 },
+    largeTablet: { breakpoint: { max: 1249, min: 901 }, items: 3 },
+    tablet: { breakpoint: { max: 900, min: 641 }, items: 2 },
+    tabletsmall: { breakpoint: { max: 640, min: 401 }, items: 1 },
+    mobile: { breakpoint: { max: 400 }, items: 1 },
   };
 
 
@@ -116,7 +101,7 @@ const App = () => {
             Latest Products
           </h2>
           <div className="d-flex justify-content-end mx-5">
-            <Button className='shadow' style={{ backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
+            <Button className='shadow' style={{ backgroundColor: '#ffffff', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-blue'>See More</Link></Button>
           </div>
           <Carousel
             swipeable={true}
@@ -150,7 +135,7 @@ const App = () => {
             Mobiles and Electronics
           </h2>
           <div className="d-flex justify-content-end mx-5">
-            <Button className='shadow' style={{ backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
+            <Button className='shadow' style={{ backgroundColor: '#ffffff', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-blue'>See More</Link></Button>
           </div>
           <Carousel
             swipeable={true}
@@ -184,7 +169,7 @@ const App = () => {
             Fashion and Beauty
           </h2>
           <div className="d-flex justify-content-end mx-5">
-            <Button className='shadow' style={{ backgroundColor: 'rgba(11, 13, 170, 0.697)', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-white'>See More</Link></Button>
+            <Button className='shadow' style={{ backgroundColor: '#ffffff', border: '0' }}><Link to={`/ProductsPage`} className='text-decoration-none text-blue'>See More</Link></Button>
           </div>
           <Carousel
             swipeable={true}
@@ -213,11 +198,11 @@ const App = () => {
           </Carousel>
         </div>
 
-        <div className='jumbotron jumbotron-fluid mt-4 mx-1' data-aos="slide-up">
+        <div className='jumbotron jumbotron-fluid mt-4 mx-4' data-aos="fade-right">
           {useUserAuth.getState().username == '' ? (
-            <Link to={"/Signup"}><img src='phstore_banner3.webp' className='img-fluid banner-ph'></img></Link>
+            <Link to={"/Signup"}><img src='phstore_banner2.webp' className='img-fluid banner-ph'></img></Link>
           ) : (
-            <Link to={"/AddProduct"}><img src='phstore_banner3.webp' className='img-fluid banner-ph'></img></Link>
+            <Link to={"/AddProduct"}><img src='phstore_banner2.webp' className='img-fluid banner-ph'></img></Link>
           )}
         </div>
       </div>

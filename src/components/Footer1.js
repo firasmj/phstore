@@ -16,7 +16,7 @@ function Footer1() {
     return (
         <div>
             <footer>
-                <div className="footer" data-aos="fade-up">
+                <div className="footer">
                     <div className="row">
                         <a href="https://www.instagram.com/firas_mj"><i><FontAwesomeIcon icon={faInstagram} /></i></a>
                         <a href="https://wa.me/96181089213"><i><FontAwesomeIcon icon={faWhatsapp} /></i></a>
