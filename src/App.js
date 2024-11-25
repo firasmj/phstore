@@ -23,7 +23,7 @@ const App = () => {
     largeTablet: { breakpoint: { max: 1249, min: 901 }, items: 3 },
     tablet: { breakpoint: { max: 900, min: 641 }, items: 2 },
     tabletsmall: { breakpoint: { max: 640, min: 401 }, items: 1 },
-    mobile: { breakpoint: { max: 400 }, items: 1 },
+    mobile: { breakpoint: { max: 400, min: 0 }, items: 1 },
   };
 
 
@@ -200,7 +200,7 @@ const App = () => {
 
         <div className='jumbotron jumbotron-fluid mt-4 mx-4' data-aos="fade-right">
           {useUserAuth.getState().username == '' ? (
-            <Link to={"/Signup"}><img src='phstore_banner2.webp' className='img-fluid banner-ph'></img></Link>
+            <Link to={"/Signup"}><img src='phstore_banner3.webp' className='img-fluid banner-ph'></img></Link>
           ) : (
             <Link to={"/AddProduct"}><img src='phstore_banner2.webp' className='img-fluid banner-ph'></img></Link>
           )}
