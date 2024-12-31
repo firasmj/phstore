@@ -41,7 +41,9 @@ const App = () => {
     };
   }
   // const initialState = useUserAuth.retrieveState();
-  useUserAuth.setState(retrieveState);
+  useEffect(() => {
+    useUserAuth.setState(retrieveState);
+  },[]);
   // useUserAuth.setState(initialState || {});
 
 
@@ -56,32 +58,58 @@ const App = () => {
   });
 
   useEffect(() => {
-    axiosInstance.get('/usernames')
-      .then(response => setUsernames2(response.data))
-      // .then(response => console.log(response.data))
-      .catch(err => console.log(err));
+    const getUsernames = async () => {
+      await axiosInstance.get('/usernames')
+        .then(response => setUsernames2(response.data))
+        // .then(response => console.log(response.data))
+        .catch(err => console.log(err));
+    }
+    getUsernames();
   }, []);
 
-  useEffect(() => {
-    axiosInstance.get('/products/latest')
-      .then(response => setProducts(response.data))
-      // .then(response => console.log(response.data))
-      .catch(err => console.log(err));
-  }, []);
+  useEffect( () => {
+    const getProducts = async () => {
+       axiosInstance.get('/products/latest')
+        .then(response => setProducts(response.data))
+        // .then(response => console.log(response.data))
+        .catch(err => console.log(err));
+    }
 
-  useEffect(() => {
-    axiosInstance.get('/api/productsMobilesElectronics')
+    const getMobiles = async () => {
+       axiosInstance.get('/api/productsMobilesElectronics')
       .then(response => setMobilesElectronics(response.data))
       // .then(response => console.log(response.data))
       .catch(err => console.log(err));
-  }, []);
+    }
 
-  useEffect(() => {
-    axiosInstance.get('/api/productsFashion')
+    const getFashion = async () => {
+       axiosInstance.get('/api/productsFashion')
       .then(response => setFashion(response.data))
       // .then(response => console.log(response.data))
       .catch(err => console.log(err));
+    }
+
+    const all = async () => {
+      await getProducts(); await getMobiles(); await getFashion();
+    }
+
+    all();
+
   }, []);
+
+  // useEffect(() => {
+  //   axiosInstance.get('/api/productsMobilesElectronics')
+  //     .then(response => setMobilesElectronics(response.data))
+  //     // .then(response => console.log(response.data))
+  //     .catch(err => console.log(err));
+  // }, []);
+
+  // useEffect(() => {
+  //   axiosInstance.get('/api/productsFashion')
+  //     .then(response => setFashion(response.data))
+  //     // .then(response => console.log(response.data))
+  //     .catch(err => console.log(err));
+  // }, []);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
